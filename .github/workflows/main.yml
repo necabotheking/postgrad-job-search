@@ -1,0 +1,26 @@
+name: Send Daily Email
+
+on:
+  schedule:
+    - cron: '0 8 * * *'  # Schedule to run daily at midnight
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.12
+
+
+      - name: Run Python script
+        env:
+          EMAIL_ADDRESS : ${{ secrets.EMAIL_PASSWORD }} 
+          R_EMAIL_ADDRESS : ${{ secrets.R_EMAIL_ADDRESS }}
+          S_EMAIL_ADDRESS : ${{ secrets.S_EMAIL_ADDRESS }}
+        run: python search.py
