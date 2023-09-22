@@ -24,5 +24,4 @@ jobs:
           EMAIL_ADDRESS : ${{ secrets.EMAIL_PASSWORD }} 
           R_EMAIL_ADDRESS : ${{ secrets.R_EMAIL_ADDRESS }}
           S_EMAIL_ADDRESS : ${{ secrets.S_EMAIL_ADDRESS }}
-        working-directory: postgrad_job_search/postgrad_job_search/src/
-        run: python search.py
+        run: python ./search.py
