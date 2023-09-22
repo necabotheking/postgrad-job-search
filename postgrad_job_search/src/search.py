@@ -19,11 +19,7 @@ def data_handle():
     Returns: df (Pandas DataFrame): Formatted pandas dataframe
                      url_list (lst): List of URLs
     """
-<<<<<<< Updated upstream
-    df = pd.read_excel("/home/runner/work/postgrad_job_search/postgrad_job_search/data/Companies.xlsx")
-=======
     df = pd.read_excel("Companies.xlsx")
->>>>>>> Stashed changes
     url_list = df["URL"].values.tolist()
     df_copy = df.drop(df.columns[[1, 4]], axis=1)
     return df_copy, url_list
