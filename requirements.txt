@@ -1,0 +1,4 @@
+pandas==2.0.3
+pretty_html_table==0.9.16
+python-dotenv==1.0.0
+selenium==4.12.0
