@@ -22,9 +22,12 @@ jobs:
       - name: Get directory
         run: ls
         
-      - name: Run Python script
+      - name: Change Directory & Run Python script
         env:
           EMAIL_ADDRESS : ${{ secrets.EMAIL_PASSWORD }} 
           R_EMAIL_ADDRESS : ${{ secrets.R_EMAIL_ADDRESS }}
           S_EMAIL_ADDRESS : ${{ secrets.S_EMAIL_ADDRESS }}
-        run: python ./search.py
+        working-directory: postgrad_job_search/src/
+        run: |
+          ls
+          python search.py
