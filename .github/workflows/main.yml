@@ -2,7 +2,9 @@ name: Send Daily Email
 
 on:
   schedule:
-    - cron: '0 8 * * *'  # Schedule to run daily at midnight
+    - cron: '0 14 * * *'  # Schedule to run daily at 8 am CST
+
+  workflow_dispatch:
 
 jobs:
   build:
@@ -15,8 +17,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.12
-
+          python-version: '3.x' 
 
       - name: Run Python script
         env:
