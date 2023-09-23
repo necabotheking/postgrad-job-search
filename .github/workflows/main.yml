@@ -29,8 +29,9 @@ jobs:
       - name: Get directory
         run: pwd
 
-      - name: Set up Chrome WebDriver
-        uses: nanasess/setup-chromedriver@v1
+      - name: setup-chromedriver
+        uses: nanasess/setup-chromedriver@v2.2.0
+            
         
       - name: Change Directory & Run Python script
         env:
