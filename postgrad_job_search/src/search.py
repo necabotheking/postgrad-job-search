@@ -99,10 +99,8 @@ def email(notification_df):
 
     Returns: None
     """
-    #load_dotenv("postgrad_job_search/credentials/.env")
 
     receiver_email = os.environ.get("R_EMAIL_ADDRESS")
-    print(receiver_email)
     sender_email = os.environ.get("S_EMAIL_ADDRESS")
     password = os.environ.get("EMAIL_PASSWORD")
     smtp_server = "smtp.gmail.com"
@@ -153,7 +151,6 @@ def main():
         "Data Science",
         "Data Scientist",
         "Associate",
-        "Project",
         "Data Engineer",
         "Statistian",
         "Data Analysis",
@@ -166,9 +163,5 @@ def main():
         notification_df = parse_index_lst(idx_list, df)
         print(notification_df)
         email(notification_df)
-
-
-# if __name__ == "__main__":
-#     main()
 
 main()
