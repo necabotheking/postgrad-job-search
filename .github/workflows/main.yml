@@ -9,6 +9,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      EMAIL_ADDRESS : ${{ secrets.EMAIL_PASSWORD }} 
+      R_EMAIL_ADDRESS : ${{ secrets.R_EMAIL_ADDRESS }}
+      S_EMAIL_ADDRESS : ${{ secrets.S_EMAIL_ADDRESS }}
 
     steps:
       - name: Check out code
@@ -34,10 +38,6 @@ jobs:
             
         
       - name: Change Directory & Run Python script
-        env:
-          EMAIL_ADDRESS : ${{ secrets.EMAIL_PASSWORD }} 
-          R_EMAIL_ADDRESS : ${{ secrets.R_EMAIL_ADDRESS }}
-          S_EMAIL_ADDRESS : ${{ secrets.S_EMAIL_ADDRESS }}
         working-directory: postgrad_job_search/src/
         run: |
           ls
