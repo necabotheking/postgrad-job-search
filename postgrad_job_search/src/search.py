@@ -101,9 +101,9 @@ def email(notification_df):
     """
     load_dotenv("postgrad_job_search/credentials/.env")
 
-    receiver_email = os.environ("R_EMAIL_ADDRESS")
-    sender_email = os.environ("S_EMAIL_ADDRESS")
-    password = os.environ("EMAIL_PASSWORD")
+    receiver_email = os.getenv("R_EMAIL_ADDRESS")
+    sender_email = os.getenv("S_EMAIL_ADDRESS")
+    password = os.getenv("EMAIL_PASSWORD")
     smtp_server = "smtp.gmail.com"
     smtp_port = 587
     # load and set environment variables and other necessary variables
