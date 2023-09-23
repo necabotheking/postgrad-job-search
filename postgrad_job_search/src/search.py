@@ -52,11 +52,11 @@ def launch(url_list, keywords):
             search_text = key
             get_source = driver.page_source
             if search_text not in get_source:
-                print("Not found!")
+                print("No keywords found!")
                 continue
             else:
                 idx_list.append(idx)
-                print("Found it!")
+                print(f"Keyword: {key} found!")
                 break
     # quit the driver before returning the list of indices
     driver.quit()
@@ -101,9 +101,9 @@ def email(notification_df):
     """
     load_dotenv("postgrad_job_search/credentials/.env")
 
-    receiver_email = os.getenv("R_EMAIL_ADDRESS")
-    sender_email = os.getenv("S_EMAIL_ADDRESS")
-    password = os.getenv("EMAIL_PASSWORD")
+    receiver_email = os.environ("R_EMAIL_ADDRESS")
+    sender_email = os.environ("S_EMAIL_ADDRESS")
+    password = os.environ("EMAIL_PASSWORD")
     smtp_server = "smtp.gmail.com"
     smtp_port = 587
     # load and set environment variables and other necessary variables
@@ -160,7 +160,7 @@ def main():
     ]
     df, url_list = data_handle()
     idx_list = launch(url_list, keywords)
-    if email_needed(idx_list) == True:
+    if email_needed(idx_list) is True:
         notification_df = parse_index_lst(idx_list, df)
         email(notification_df)
 
