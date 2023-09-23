@@ -160,8 +160,10 @@ def main():
     ]
     df, url_list = data_handle()
     idx_list = launch(url_list, keywords)
+    print(idx_list)
     if email_needed(idx_list) is True:
         notification_df = parse_index_lst(idx_list, df)
+        print(notification_df)
         email(notification_df)
 
 
