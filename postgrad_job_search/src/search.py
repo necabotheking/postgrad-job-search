@@ -34,7 +34,11 @@ def launch(url_list, keywords):
 
     Returns: idx_list (lst): List of indices that include the keywords
     """
-    driver = webdriver.Chrome()
+    # Set up Chrome WebDriver options (for headless execution)
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')  # Run Chrome in headless mode (no GUI)
+    # Create a WebDriver instance 
+    driver = webdriver.Chrome(options=options)
     idx_list = []
 
     for idx, url in enumerate(url_list):
