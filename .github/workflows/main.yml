@@ -10,9 +10,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      EMAIL_ADDRESS : ${{ secrets.EMAIL_PASSWORD }} 
-      R_EMAIL_ADDRESS : ${{ secrets.R_EMAIL_ADDRESS }}
-      S_EMAIL_ADDRESS : ${{ secrets.S_EMAIL_ADDRESS }}
+      EMAIL_PASSWORD: "${{ secrets.EMAIL_PASSWORD }}"
+      R_EMAIL_ADDRESS: "${{ secrets.R_EMAIL_ADDRESS }}"
+      S_EMAIL_ADDRESS: "${{ secrets.S_EMAIL_ADDRESS }}"
 
     steps:
       - name: Check out code
