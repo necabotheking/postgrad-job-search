@@ -3,30 +3,10 @@
 This repository utilizes a excel dataset curated by [necabotheking](https://github.com/necabotheking/) to streamline thier post-grad job search. Built with python and the following packages selenium, poetry, ...
 
 ## Features
-
+[INSERT HERE]
 
 ## Project Requiremnts
-
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
-
-```bash
-pip install foobar
-```
-
-## Usage
-
-```python
-import foobar
-
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
-```
+[INSERT HERE]
 
 ## Email Example
 ![Alt text](postgrad_job_search/images/image.png?raw=true "Optional Title")
