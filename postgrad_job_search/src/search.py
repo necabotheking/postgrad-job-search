@@ -22,6 +22,7 @@ def data_handle():
     df = pd.read_excel("Companies.xlsx")
     url_list = df["URL"].values.tolist()
     df_copy = df.drop(df.columns[[1, 4]], axis=1)
+	
     return df_copy, url_list
 
 
@@ -29,14 +30,16 @@ def launch(url_list, keywords):
     """
     Launch browser and run keywords on the list of urls
 
-    Inputs:	url_list (lst): List of URLs
+    Inputs:
+    	    url_list (lst): List of URLs
             keywords (lst): List of keywords
 
     Returns: idx_list (lst): List of indices that include the keywords
     """
-    # Set up Chrome WebDriver options (for headless execution)
+    # Set up Chrome WebDriver options 
     options = webdriver.ChromeOptions()
-    options.add_argument('--headless')  # Run Chrome in headless mode (no GUI)
+    options.add_argument('--headless')  
+
     # Create a WebDriver instance 
     driver = webdriver.Chrome(options=options)
     idx_list = []
@@ -47,7 +50,7 @@ def launch(url_list, keywords):
         driver.implicitly_wait(2)
         driver.get(url)
 
-        # add regex to look for keywords regardless of the capitalization (case insensitivity)
+
         for key in keywords:
             search_text = key
             get_source = driver.page_source
@@ -58,6 +61,7 @@ def launch(url_list, keywords):
                 idx_list.append(idx)
                 print(f"Keyword: {key} found!")
                 break
+		    
     # quit the driver before returning the list of indices
     driver.quit()
     return idx_list
@@ -67,10 +71,9 @@ def email_needed(idx_list):
     """
     Checks if an update email is needed or not
 
-    Inputs: idx_list (lst) list of indeces
+    Inputs: idx_list (lst) list of indices
 
-    Returns: boolean
-
+    Returns: boolean 
     """
     if len(idx_list) == 0:
         return False
@@ -81,7 +84,8 @@ def parse_index_lst(idx_list, df):
     """
     Parses the index list to create a dataframe of companies to check in an email
 
-    Inputs: idx_list (lst): List of indices
+    Inputs: 
+    	    idx_list (lst): List of indices
             df (Pandas DataFrame): Original DataFrame of companies and information
 
     Returns: notification_df (Pandas DataFrame): DataFrame of companies with current job openings matching the keywords
@@ -107,7 +111,6 @@ def email(notification_df):
     smtp_port = 587
     # load and set environment variables and other necessary variables
 
-    # below creates the daily email
     msg = MIMEMultipart()
     today = datetime.date.today().strftime("%Y-%m-%d")
 
@@ -125,21 +128,22 @@ def email(notification_df):
 			</body>
 		</html>
 		"""
+	
     msg.attach(MIMEText(html, "html"))
 
     # create the connection and send the email below
     context = ssl.create_default_context()
     try:
         server = smtplib.SMTP(smtp_server, smtp_port)
-        server.ehlo()  # check connection
-        server.starttls(context=context)  # Secure the connection
-        server.ehlo()  # check connection
+        server.ehlo() 
+        server.starttls(context=context)  
+        server.ehlo() 
         server.login(sender_email, password)
 
         server.sendmail(sender_email, receiver_email, msg.as_string())
 
     except Exception as e:
-        # Print any error messages
+        # print error
         print(e)
 
 
@@ -148,7 +152,7 @@ def main():
     Runs the script
     """
     keywords = [
-        "Data Science",
+        "Data Analyst",
         "Data Scientist",
         "Associate",
         "Data Engineer",
@@ -158,7 +162,7 @@ def main():
     ]
     df, url_list = data_handle()
     idx_list = launch(url_list, keywords)
-    print(idx_list)
+
     if email_needed(idx_list) is True:
         notification_df = parse_index_lst(idx_list, df)
         print(notification_df)
