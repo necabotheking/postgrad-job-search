@@ -18,6 +18,7 @@ This repository serves as a web scraper and email automation tool that utilizes 
 - Project Goals:
   - The primary objective was to create a tool that automates the process of collecting daily job notifications. This project aimed to save time and effort in continually checking for opportunities at the included companies.
 
+<!---
 - Challenges and Learning Experience:
  - 
 
@@ -26,3 +27,4 @@ This repository serves as a web scraper and email automation tool that utilizes 
 
 - Tool Selection: 
   - 
+  --->
