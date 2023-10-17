@@ -19,9 +19,10 @@ This repository serves as a web scraper and email automation tool that utilizes 
   - The primary objective was to create a tool that automates the process of collecting daily job notifications. This project aimed to save time and effort in continually checking for opportunities at the included companies.
 
 - Challenges and Learning Experience:
-One of the main challenges of this project was working with web scraping, which often requires handling dynamic content and working around website structures that may change. It provided a valuable learning experience in web scraping and automation techniques.
+ - 
 
-Unexpected Obstacles: During development, unexpected changes in website structure and security measures required continuous adjustments to the scraping script. Additionally, handling pagination and ensuring data integrity were challenging aspects.
+- Unexpected Obstacles: 
+  -
 
 - Tool Selection: 
-  - chose to implement this project in Python due to its extensive libraries for web scraping. Selenium was chosen as the main tool for automation, offering a high level of control over web interactions and data extraction.
+  - 
