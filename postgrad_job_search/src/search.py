@@ -157,7 +157,8 @@ def main():
         "Associate",
         "Data Engineer",
         "Statistian",
-        "Data Analysis",
+	"Data Journalism",
+	"Data Journalist",
         "Survey",
     ]
     df, url_list = data_handle()
