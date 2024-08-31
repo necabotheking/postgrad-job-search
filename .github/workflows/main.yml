@@ -27,8 +27,7 @@ jobs:
         with:
           python-version: '3.x' 
 
-       - name: Install setuptools (for Python 3.12+)
-        if: ${{ matrix.python-version >= '3.12' }}
+      - name: Install setuptools (for Python 3.12+)
         run: pip install setuptools
 
       - name: Cache Python packages
