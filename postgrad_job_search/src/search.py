@@ -12,12 +12,12 @@ from email.mime.text import MIMEText
 
 def data_handle():
     """
-    Formats the source data Companies.xlsx
+    Formats the source data Companies.xlsx into a list of URLS and companies to search
 
     Inputs: None
 
     Returns: df (Pandas DataFrame): Formatted pandas dataframe
-                     url_list (lst): List of URLs
+            url_list (lst): List of URLs
     """
     df = pd.read_excel("Companies.xlsx")
     url_list = df["URL"].values.tolist()
@@ -40,13 +40,12 @@ def launch(url_list, keywords):
     options = webdriver.ChromeOptions()
     options.add_argument('--headless')  
 
-    # Create a WebDriver instance 
+    # Create a headless WebDriver instance 
     driver = webdriver.Chrome(options=options)
     idx_list = []
 
     for idx, url in enumerate(url_list):
         print(f"going to this url: {url}")
-        # time.sleep(30)
         driver.implicitly_wait(2)
         driver.get(url)
 
@@ -154,12 +153,9 @@ def main():
     keywords = [
         "Data Analyst",
         "Data Scientist",
-        "Associate",
         "Data Engineer",
-        "Statistian",
-	"Data Journalism",
+        "Software Engineer",
 	"Data Journalist",
-        "Survey",
     ]
     df, url_list = data_handle()
     idx_list = launch(url_list, keywords)
