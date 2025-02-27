@@ -1,7 +1,7 @@
-pandas==2.2.2
+pandas==2.2.3
 pretty_html_table==0.9.16
 python-dotenv==1.0.1
-selenium==4.24.0
+selenium==4.29.0
 openpyxl==3.1.5
-numpy==2.1.0
-setuptools==74.0.0
+numpy==2.2.3
+setuptools==75.8.2
